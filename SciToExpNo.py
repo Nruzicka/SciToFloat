@@ -2,6 +2,7 @@ import re
 
 #Returns the amount of decimals the number should contain. 
 def get_precision(sci_num: str) -> int:
+    sci_num = ''.join(char.lower() if char == 'E' else char for char in sci_num)
     base, exp = sci_num.split("e")
     if int(exp) < 0:
         if "." in base:
